@@ -1,0 +1,14 @@
+<!ELEMENT Proizvodi (Proizvod+)>
+<!ELEMENT Proizvod(Kategorija,Cena,Opis,Oznake+,Akcija)>
+<!ELEMENT Kategorija (#PCDATA)>
+<!ELEMENT Cena (#PCDATA)>
+<!ELEMENT Opis (#PCDATA)>
+<!ELEMENT Oznake (Tag+)>
+<!ELEMENT Tag (#PCDATA)>
+<!ELEMENT Akcija (#PCDATA)>
+
+<!ATTLIST Cena valuta (RSD|eur) "RSD" #REQUIRED>
+<!ATTLIST Akcija cena CDATA #REQUIRED>
+<!ATTLIST Akcija datumIsteka CDATA #REQUIRED>
+
+
