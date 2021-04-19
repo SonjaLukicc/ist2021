@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://viser.edu.rs/XMLSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+
+<xs:element name="Proizvodi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Proivod">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Kategorija" type="xs:string">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Laptopovi"/>
+                        <xs:enumeration value="Konzole za igranje"/>
+                        <xs:enumeration value="Slusalice"/>
+                        <xs:enumeration value="Monitori"/>
+                        <xs:enumeration value="Misevi"/>
+                        <xs:enumeration value="Gejming stolice"/>
+                    </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cena">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+                <xs:attribute name="valuta" type="xs:string" use="required" />
+              </xs:element>
+              <xs:element name="Opis" type="xs:string">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="10"/>
+                        <xs:maxLength value="180"/>
+                    </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Oznake">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="5" name="Tag" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Akcija">
+                <xs:attribute name="novaCena" type="xs:decimal" use="required" />
+                <xs:attribute name="datumIsteka" type="xs:date" use="required" />
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
